@@ -113,5 +113,10 @@ export const STRINGS = new LocalizedStrings({
 		RecentlyAdded: "Недавно добавленные",
 		Language: "Язык",
 		COURSE: "Курс",
+		Nike: "Nike",
+		ZARA: "ZARA",
+		LG: "LG",
+		SAMO: "SAMO",
+		PENTI: "Penti",
 	},
 });

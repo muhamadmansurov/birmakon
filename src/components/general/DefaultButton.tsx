@@ -1,4 +1,4 @@
-import { COLORS, GRADIENT_COLORS } from "@novomarkt/constants/colors";
+import { COLORS } from "@novomarkt/constants/colors";
 import React, { ReactElement } from "react";
 import {
 	ActivityIndicator,
@@ -10,9 +10,7 @@ import {
 	View,
 	ViewStyle,
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import Text from "./Text";
-
 export interface DefaultButtonProps {
 	text?: string;
 	onPress?: (event: GestureResponderEvent) => void;
@@ -71,7 +69,7 @@ export default DefaultButton;
 
 const styles = StyleSheet.create({
 	content: {
-		padding: 12,
+		padding: 8,
 		justifyContent: "center",
 		alignItems: "center",
 	},
@@ -96,7 +94,6 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.25,
 		shadowRadius: 4.84,
-
 		elevation: 5,
 		backgroundColor: COLORS.darkBlue4,
 	},

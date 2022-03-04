@@ -4,7 +4,6 @@ import {
 	StyleProp,
 	StyleSheet,
 	Text as RNText,
-	TextBase,
 	TextProps,
 	TextStyle,
 } from "react-native";

@@ -9,7 +9,6 @@ const ChooseBrands = () => {
 		<View style={styles.container}>
 			<View style={styles.row}>
 				<Text style={styles.headerTxt}>{STRINGS.brands}</Text>
-				<Text style={styles.blueTxt}>{STRINGS.all}</Text>
 			</View>
 			<View style={styles.brands}>
 				<TouchableOpacity style={styles.box}>

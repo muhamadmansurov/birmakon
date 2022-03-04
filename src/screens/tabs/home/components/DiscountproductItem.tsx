@@ -14,8 +14,6 @@ import {
 	TouchableWithoutFeedback,
 	View,
 } from "react-native";
-
-let navigation = useNavigation();
 export interface ProductItemProps {
 	id?: number;
 	image: string;
@@ -37,6 +35,7 @@ const ProductItem = ({
 	const [isActive, setIsActive] = useState(true);
 	// let secondary = true;
 	let { image, category, price, shopName, sale, name, discount } = item;
+	let navigation = useNavigation();
 	return (
 		<TouchableWithoutFeedback
 			onPress={() =>
@@ -94,11 +93,16 @@ const ProductItem = ({
 export default ProductItem;
 
 const styles = StyleSheet.create({
-	dscountText: { fontSize: 12, color: COLORS.defaultBlack },
+	dscountText: {
+		fontSize: 12,
+		color: COLORS.defaultBlack,
+	},
 	discount: {
 		borderRadius: 8,
 		padding: 4,
 		backgroundColor: COLORS.lightpurple2,
+		marginBottom: 25,
+		marginRight: -5,
 	},
 	absolute: {
 		position: "absolute",
@@ -136,8 +140,8 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 	},
 	image: {
-		width: WINDOW_WIDTH / 2 - 20,
-		height: 180,
+		width: WINDOW_WIDTH / 2.13 - 22,
+		height: 150,
 		borderTopLeftRadius: 8,
 		borderTopRightRadius: 8,
 	},
@@ -151,13 +155,13 @@ const styles = StyleSheet.create({
 			width: 0,
 			height: 0,
 		},
-		width: WINDOW_WIDTH / 2 - 20,
+		width: WINDOW_WIDTH / 2.15 - 20,
 		marginVertical: 15,
-		marginHorizontal: 5,
+		marginHorizontal: 11,
 	},
 	details: {
 		paddingHorizontal: 8,
-		paddingBottom: 24,
+		paddingBottom: 10,
 		paddingTop: 8,
 	},
 	buttonContainer: {
