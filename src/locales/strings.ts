@@ -97,7 +97,6 @@ export const STRINGS = new LocalizedStrings({
 		problemActivation: "Проблема авторизации?",
 		forgotPassword:
 			"Введите свой номер телефона, и мы вышлем вам код для входа в вашу учетную запись.",
-		MyOrders: "Мои заказы",
 		CompletedOrders: "Завершенные заказы",
 		Paymentexpected: "Ожидается оплата",
 		Shipmentexpected: "Ожидается отправка",
@@ -118,5 +117,15 @@ export const STRINGS = new LocalizedStrings({
 		LG: "LG",
 		SAMO: "SAMO",
 		PENTI: "Penti",
+		dateOfOrders: "с 9 ноября , от 199 сум",
+		pickupFromThePointOfIssue: "Самовывоз из пункта выдачи",
+		sellers: "Продавцы",
+		DeliveryMethod: "Способ доставки",
+		PointIssue: "Пункт выдачи",
+		withCourier: "Курьером",
+		product: "Способ получения товара",
+		addressDelivery: "Адрес доставки",
+		buy: "Способ оплаты",
+		ordered: "Заказать",
 	},
 });

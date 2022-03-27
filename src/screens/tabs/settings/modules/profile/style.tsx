@@ -5,204 +5,45 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: "#fff",
-		paddingVertical: 20,
-	},
-
-	header: {
-		fontSize: 25,
-		color: COLORS.defaultBlack,
-		marginTop: 20,
-		marginHorizontal: 20,
-	},
-
-	shadowBox: {
-		padding: 15,
-		marginVertical: 10,
-		borderRadius: 8,
-		elevation: 5,
-		shadowOpacity: 0.3,
-		shadowRadius: 5,
-		shadowOffset: {
-			width: 0,
-			height: 0,
-		},
-		backgroundColor: COLORS.white,
-		marginHorizontal: 20,
-	},
-
-	row: {
-		alignItems: "flex-start",
-		flexDirection: "row",
-		marginTop: 15,
-	},
-
-	text: {
-		fontSize: 18,
-		color: COLORS.defaultBlack,
-		marginHorizontal: 15,
-	},
-
-	inputBox: {
-		marginTop: 20,
-	},
-
-	rowButtons: {
-		marginTop: 5,
-		marginRight: 20,
-		flexDirection: "row",
-	},
-
-	dot: {
-		width: 17,
-		height: 17,
-		borderRadius: 10,
-		borderWidth: 2,
-		borderColor: COLORS.orange,
-		backgroundColor: COLORS.white,
-		alignItems: "center",
-		justifyContent: "center",
-	},
-
-	background: {
-		width: 9,
-		height: 9,
-		borderRadius: 6,
-		backgroundColor: COLORS.orange,
-	},
-	dotGray: {
-		width: 17,
-		height: 17,
-		borderRadius: 10,
-		borderWidth: 2,
-		borderColor: COLORS.gray,
-		backgroundColor: COLORS.white,
-		alignItems: "center",
-		justifyContent: "center",
-	},
-
-	backgroundGray: {
-		width: 9,
-		height: 9,
-		borderRadius: 6,
-		backgroundColor: COLORS.white,
-	},
-
-	black: {
-		marginLeft: 5,
-		color: COLORS.defaultBlack,
-	},
-
-	head: {
-		// marginTop: -10,
-		alignSelf: "center",
-		color: COLORS.defaultBlack,
-		fontFamily: "Montserrat-Medium",
-	},
-
-	shadowBoxTwo: {
-		padding: 15,
-		marginVertical: 10,
-		borderRadius: 8,
-		elevation: 5,
-		shadowOpacity: 0.3,
-		shadowRadius: 5,
-		shadowOffset: {
-			width: 0,
-			height: 0,
-		},
-		backgroundColor: COLORS.white,
-		marginHorizontal: 20,
-		paddingRight: 20,
-		marginBottom: 60,
-	},
-
-	bank: {
-		color: COLORS.defaultBlack,
-		fontSize: 18,
-		marginBottom: 10,
-	},
-
-	border: {
-		borderRadius: 8,
-		borderWidth: 2,
-		borderColor: COLORS.red,
-		alignItems: "center",
-		justifyContent: "center",
-		padding: 35,
-	},
-
-	blueText: {
-		color: COLORS.lightBlack,
-		fontSize: 14,
-		marginTop: 10,
-	},
-
-	round: {
-		width: 50,
-		height: 50,
-		alignItems: "center",
-		justifyContent: "center",
-		borderWidth: 2,
-		borderRadius: 30,
-		borderColor: COLORS.red,
-	},
-
-	locate: {
-		padding: 15,
-		marginVertical: 10,
-		borderRadius: 8,
-		elevation: 5,
-		shadowOpacity: 0.3,
-		shadowRadius: 5,
-		shadowOffset: {
-			width: 0,
-			height: 0,
-		},
-		backgroundColor: COLORS.white,
-		marginHorizontal: 20,
-	},
-
-	moscow: {
-		marginLeft: 10,
-	},
-
-	txt: {
-		color: COLORS.defaultBlack,
-		fontSize: 18,
-		marginBottom: 10,
-	},
-
-	delete: {
-		padding: 15,
-		marginVertical: 10,
-		borderRadius: 8,
-		elevation: 5,
-		shadowOpacity: 0.3,
-		shadowRadius: 5,
-		shadowOffset: {
-			width: 0,
-			height: 0,
-		},
-		backgroundColor: COLORS.white,
-		marginHorizontal: 20,
-	},
-
-	recover: {
-		padding: 15,
-		marginVertical: 10,
-		borderRadius: 8,
-		elevation: 5,
-		shadowOpacity: 0.3,
-		shadowRadius: 5,
-		shadowOffset: {
-			width: 0,
-			height: 0,
-		},
-		backgroundColor: COLORS.white,
-		marginHorizontal: 20,
 	},
 
 	left: {
 		marginHorizontal: 20,
+	},
+
+	styleOne: {
+		flexDirection: "row",
+		marginHorizontal: 20,
+		marginVertical: 10,
+		borderRadius: 10,
+		marginTop: 20,
+	},
+
+	buttonBox: {
+		borderColor: "#fff",
+		paddingVertical: 10,
+		flex: 1,
+		alignItems: "center",
+		backgroundColor: COLORS.lightOrange,
+		marginLeft: 5,
+		borderRadius: 5,
+	},
+
+	buttonBoxTwo: {
+		paddingVertical: 10,
+		borderColor: "#fff",
+		flex: 1,
+		alignItems: "center",
+		backgroundColor: COLORS.lightgray,
+		marginLeft: 5,
+		borderRadius: 5,
+	},
+
+	headerBox: {
+		marginTop: 30,
+	},
+
+	scrollContainer: {
+		flex: 1,
 	},
 });

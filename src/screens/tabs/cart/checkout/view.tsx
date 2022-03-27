@@ -1,11 +1,9 @@
-import React from "react";
-import { ScrollView, View } from "react-native";
-import Text from "@novomarkt/components/general/Text";
-import { styles } from "./style";
 import BackHeader from "@novomarkt/components/navigation/BackHeader";
 import { STRINGS } from "@novomarkt/locales/strings";
-import SelectableDelivery from "../components/SelectableDelivery";
+import React from "react";
+import { ScrollView, View } from "react-native";
 import RecipientBox from "../components/RecipientBox";
+import { styles } from "./style";
 
 const CheckoutView = () => {
 	return (
@@ -14,9 +12,7 @@ const CheckoutView = () => {
 			showsVerticalScrollIndicator={false}
 		>
 			<BackHeader name={STRINGS.checkout} style={styles.backHeader} />
-			<SelectableDelivery />
 			<RecipientBox />
-			<View style={{ marginTop: 100 }}></View>
 		</ScrollView>
 	);
 };

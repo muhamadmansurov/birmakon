@@ -1,11 +1,21 @@
+import { LeftArrowIcon } from "@novomarkt/assets/icons/icons";
 import AllButton from "@novomarkt/components/general/AllButton";
 import Text from "@novomarkt/components/general/Text";
 import { COLORS } from "@novomarkt/constants/colors";
+import { ROUTES } from "@novomarkt/constants/routes";
 import { STRINGS } from "@novomarkt/locales/strings";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Dimensions, FlatList, StyleSheet, View } from "react-native";
-import BrandItem, { BrandItemProps } from "./BrandItem";
+import {
+	Dimensions,
+	FlatList,
+	StyleSheet,
+	TouchableOpacity,
+	View,
+} from "react-native";
 import Modal from "react-native-modal";
+import { HomeStack } from "..";
+import BrandItem, { BrandItemProps } from "./BrandItem";
 
 let brandsData: BrandItemProps[] = [
 	"https://www.waterfront.co.za/wp-content/uploads/2018/05/zara.jpg",
@@ -17,6 +27,7 @@ let brandsData: BrandItemProps[] = [
 ];
 
 const BrandsList = () => {
+	let navigation = useNavigation();
 	const [allModalVisible, setAllModalVisible] = useState(false);
 	const toggleAllModalVisible = () => {
 		setAllModalVisible(!allModalVisible);
@@ -37,21 +48,51 @@ const BrandsList = () => {
 					style={styles.modalStyle}
 				>
 					<View style={styles.modalInView}>
-						<Text style={styles.brandsText}>{STRINGS.brands}</Text>
+						<View
+							style={{
+								flexDirection: "row",
+								alignItems: "center",
+								paddingHorizontal: 15,
+							}}
+						>
+							<TouchableOpacity
+								onPress={() => {
+									navigation.navigate(ROUTES.HOME);
+									setAllModalVisible(false);
+								}}
+							>
+								<LeftArrowIcon />
+							</TouchableOpacity>
+							<Text style={styles.brandsText}>
+								{STRINGS.brands}
+							</Text>
+						</View>
 						<View style={styles.view}>
-							<Text style={styles.brandsName}>
-								{STRINGS.Nike}
-							</Text>
-							<Text style={styles.brandsName}>
-								{STRINGS.ZARA}
-							</Text>
-							<Text style={styles.brandsName}>{STRINGS.LG}</Text>
-							<Text style={styles.brandsName}>
-								{STRINGS.SAMO}
-							</Text>
-							<Text style={styles.brandsName}>
-								{STRINGS.PENTI}
-							</Text>
+							<View style={styles.view}>
+								<Text style={styles.brandsName}>
+									{STRINGS.Nike}
+								</Text>
+							</View>
+							<View style={styles.view}>
+								<Text style={styles.brandsName}>
+									{STRINGS.ZARA}
+								</Text>
+							</View>
+							<View style={styles.view}>
+								<Text style={styles.brandsName}>
+									{STRINGS.LG}
+								</Text>
+							</View>
+							<View style={styles.view}>
+								<Text style={styles.brandsName}>
+									{STRINGS.SAMO}
+								</Text>
+							</View>
+							<View style={styles.view}>
+								<Text style={styles.brandsName}>
+									{STRINGS.PENTI}
+								</Text>
+							</View>
 						</View>
 					</View>
 				</Modal>
@@ -75,7 +116,7 @@ const styles = StyleSheet.create({
 	title: {
 		color: COLORS.defaultBlack,
 		fontSize: 19,
-		marginLeft: 16,
+		// marginLeft: 16,
 		fontWeight: "700",
 		letterSpacing: 0.5,
 	},
@@ -96,21 +137,26 @@ const styles = StyleSheet.create({
 	modalInView: {
 		flex: 1,
 		backgroundColor: COLORS.white,
-		paddingHorizontal: 20,
-		alignItems: "flex-start",
+		// paddingHorizontal: 20,
+		// alignItems: "flex-start",
 		paddingVertical: 50,
 	},
 	brandsText: {
 		color: COLORS.defaultBlack,
 		fontWeight: "600",
 		fontSize: 18,
+		marginLeft: 15,
 	},
 	view: {
-		marginTop: 20,
+		marginTop: 5,
+		borderBottomWidth: 1,
+		borderColor: COLORS.lightgray,
 	},
 	brandsName: {
 		color: COLORS.defaultBlack,
 		fontSize: 16,
 		marginTop: 15,
+		marginLeft: 15,
+		marginBottom: 5,
 	},
 });

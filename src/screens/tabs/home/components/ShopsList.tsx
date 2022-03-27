@@ -1,3 +1,4 @@
+import AllButton from "@novomarkt/components/general/AllButton";
 import Text from "@novomarkt/components/general/Text";
 import { COLORS } from "@novomarkt/constants/colors";
 import { STRINGS } from "@novomarkt/locales/strings";
@@ -17,7 +18,10 @@ let shopsData: BrandItemProps[] = [
 const ShopsList = () => {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>{STRINGS.yourShops}</Text>
+			<View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 10 }}>
+				<Text style={styles.title}>{STRINGS.yourShops}</Text>
+				<AllButton />
+			</View>
 			<FlatList
 				horizontal
 				showsHorizontalScrollIndicator={false}
@@ -36,7 +40,7 @@ const styles = StyleSheet.create({
 	title: {
 		color: COLORS.defaultBlack,
 		fontSize: 19,
-		marginLeft: 16,
+		marginLeft: 6,
 		fontWeight: "700",
 		letterSpacing: 0.5,
 	},

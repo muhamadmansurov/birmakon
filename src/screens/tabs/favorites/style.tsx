@@ -17,7 +17,6 @@ export const styles = StyleSheet.create({
 
 	content: {
 		alignSelf: "center",
-		// marginHorizontal: 20,
 	},
 
 	view: {
@@ -43,5 +42,78 @@ export const styles = StyleSheet.create({
 
 	buttonTxt: {
 		fontSize: 16,
+	},
+
+	sellersActiveBtn: {
+		paddingHorizontal: 18,
+		paddingVertical: 12,
+		backgroundColor: COLORS.lightOrange,
+		borderRadius: 10,
+		marginRight: 10,
+		marginVertical: 10,
+	},
+
+	sellersIsActiveBtn: {
+		paddingHorizontal: 18,
+		paddingVertical: 12,
+		backgroundColor: COLORS.lightGray,
+		borderRadius: 10,
+		marginRight: 10,
+		marginVertical: 10,
+	},
+
+	sellersActiveText: {
+		color: COLORS.textColor,
+		fontSize: 14,
+	},
+
+	sellersIsActiveText: {
+		color: COLORS.white,
+	},
+
+	tabView: {
+		flexDirection: "row",
+		color: COLORS.gray,
+		fontWeight: "bold",
+		alignItems: "center",
+		backgroundColor: "red",
+	},
+
+	// tabview
+
+	styleOne: {
+		flexDirection: "row",
+		marginHorizontal: 20,
+		marginVertical: 10,
+		borderRadius: 10,
+		marginTop: 20,
+	},
+
+	buttonBox: {
+		borderColor: "#fff",
+		paddingVertical: 10,
+		flex: 1,
+		alignItems: "center",
+		backgroundColor: COLORS.lightOrange,
+		marginLeft: 5,
+		borderRadius: 5,
+	},
+
+	buttonBoxTwo: {
+		paddingVertical: 10,
+		borderColor: "#fff",
+		flex: 1,
+		alignItems: "center",
+		backgroundColor: COLORS.lightgray,
+		marginLeft: 5,
+		borderRadius: 5,
+	},
+
+	headerBox: {
+		marginTop: 30,
+	},
+
+	scrollContainer: {
+		flex: 1,
 	},
 });

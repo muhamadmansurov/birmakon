@@ -7,6 +7,7 @@ import {
 	ExitIcon,
 	LanguageIcon,
 	MessageIcon,
+	NotificationIcon,
 	PaymentIcon,
 	PhoneIcon,
 	QuestionMarkIcon,
@@ -29,6 +30,11 @@ const SettingsView = ({}) => {
 			<Text style={styles.headerText}>Доброе утро</Text>
 			<View style={styles.itemsBox}>
 				<SettingsItem
+					onPress={() => navigation.navigate(ROUTES.PROFILE)}
+					text={"Мои данные"}
+					icon={() => <UserMarkIcon stroke={COLORS.defaultBlack} />}
+				/>
+				<SettingsItem
 					onPress={() => navigation.navigate(ROUTES.ORDER)}
 					text={"Мои заказы"}
 					icon={() => <ShopIcon fill={COLORS.defaultBlack} />}
@@ -37,10 +43,6 @@ const SettingsView = ({}) => {
 					onPress={() => navigation.navigate(ROUTES.COMMENT)}
 					text={"Отзывы"}
 					icon={() => <BorderedStarIcon fill={COLORS.defaultBlack} />}
-				/>
-				<SettingsItem
-					text={"Избранные товары"}
-					icon={() => <BorderedLikeIcon fill={COLORS.defaultBlack} />}
 				/>
 				<SettingsItem
 					onPress={() => navigation.navigate(ROUTES.MESSAGE)}
@@ -53,41 +55,28 @@ const SettingsView = ({}) => {
 					icon={() => <PaymentIcon fill={COLORS.defaultBlack} />}
 				/>
 				<SettingsItem
+					// onPress={() => navigation.navigate(ROUTES.PAYMENTS)}
+					text={"Мои уведомления"}
+					icon={() => <NotificationIcon fill={COLORS.defaultBlack} />}
+				/>
+				<SettingsItem
+					text={"Контакты площадки"}
+					onPress={() => navigation.navigate(ROUTES.CONTACTS)}
+					icon={() => <ContactIcon stroke={COLORS.defaultBlack} />}
+				/>
+				<SettingsItem
 					text={"FAQ"}
 					onPress={() => navigation.navigate(ROUTES.QUESTIONS)}
 					icon={() => <QuestionMarkIcon fill={COLORS.defaultBlack} />}
 				/>
 				<SettingsItem
-					onPress={() => navigation.navigate(ROUTES.PROFILE)}
-					text={"Мои данные"}
-					icon={() => <UserMarkIcon stroke={COLORS.defaultBlack} />}
-				/>
-				<SettingsItem
-					text={"Контакты"}
-					onPress={() => navigation.navigate(ROUTES.CONTACTS)}
-					icon={() => <ContactIcon stroke={COLORS.defaultBlack} />}
-				/>
-				<SettingsItem
-					text={"Чаты"}
-					onPress={() => navigation.navigate(ROUTES.CHATS)}
-					icon={() => <ChatIcon fill={COLORS.defaultBlack} />}
-				/>
-				<SettingsItem
-					text={"Позвонить"}
-					icon={() => <PhoneIcon stroke={COLORS.defaultBlack} />}
-				/>
-				<SettingsItem
-					text={"Чат с поддержкой"}
-					icon={() => <MessageIcon stroke={COLORS.defaultBlack} />}
-				/>
-				<SettingsItem
 					onPress={() => navigation.navigate(ROUTES.LANGUAGE)}
-					text={"Язик"}
+					text={"Язык"}
 					icon={() => <LanguageIcon stroke={COLORS.defaultBlack} />}
 				/>
 				<SettingsItem
 					onPress={() => navigation.navigate(ROUTES.COURSE)}
-					text={"Курс"}
+					text={"Валюта"}
 					icon={() => (
 						<Image
 							style={{ width: 23, height: 23 }}

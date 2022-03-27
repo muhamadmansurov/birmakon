@@ -2,6 +2,9 @@ import { ROUTES } from "@novomarkt/constants/routes";
 import AuthStack from "@novomarkt/screens/auth";
 import TabNavigation from "@novomarkt/screens/tabs";
 import { CheckoutPointScreen } from "@novomarkt/screens/tabs/cart/checkout-point";
+import CourierDelivery from "@novomarkt/screens/tabs/cart/courierDelivery/view";
+import BrandsList from "@novomarkt/screens/tabs/home/components/BrandsList";
+import HomeView from "@novomarkt/screens/tabs/home/view";
 import { useAppSelector } from "@novomarkt/store/hooks";
 import { selectUser } from "@novomarkt/store/slices/userSlice";
 import { NavigationContainer } from "@react-navigation/native";
@@ -25,12 +28,6 @@ const AppRouter = () => {
 						headerShown: false,
 					}}
 				>
-					{/* {!user.token ? (
-						<Stack.Screen
-							name={ROUTES.AUTH}
-							component={AuthStack}
-						/>
-					) : ( */}
 					<>
 						<Stack.Screen
 							name={ROUTES.TABS}
@@ -40,8 +37,19 @@ const AppRouter = () => {
 							name={ROUTES.CHECKOUT_POINT}
 							component={CheckoutPointScreen}
 						/>
+						<Stack.Screen
+							name={ROUTES.COURIERDELIVERY}
+							component={CourierDelivery}
+						/>
+						<Stack.Screen
+							name={ROUTES.BRANDSLIST}
+							component={BrandsList}
+						/>
+						<Stack.Screen
+							name={ROUTES.HOMEVIEW}
+							component={HomeView}
+						/>
 					</>
-					{/* )} */}
 				</Stack.Navigator>
 			</NavigationContainer>
 		</View>

@@ -47,7 +47,6 @@ const NewsList = ({ title = STRINGS.news }: NewsData) => {
 				data={newsData}
 				renderItem={NewsItem}
 				style={styles.container}
-				contentContainerStyle={styles.contentContainerStyle}
 			/>
 		</View>
 	);
@@ -64,7 +63,4 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 	},
 	container: { marginBottom: 20 },
-	contentContainerStyle: {
-		paddingHorizontal: 12,
-	},
 });

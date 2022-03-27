@@ -2,13 +2,11 @@ import {
 	Choice2Icon,
 	ChoiceIcon,
 	CrashIcon,
-	HeartIcon,
 	MinusIcon,
 	PlusCounterIcon,
 } from "@novomarkt/assets/icons/icons";
 import Text from "@novomarkt/components/general/Text";
 import { COLORS } from "@novomarkt/constants/colors";
-import { STRINGS } from "@novomarkt/locales/strings";
 import React, { useState } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 
@@ -16,84 +14,89 @@ export let imageURL =
 	"https://images.yaoota.com/ufh-pKI-D0-pSxC9M0Jz_ge7w18=/trim/yaootaweb-production-ke/media/crawledproductimages/24490bca2258a9b1940fc4ebd62981425a0c9382.jpg";
 
 export let ProductsData = {
-	name: "Lorem Ipsum is simply dummy text",
+	name: "ADIDAS кроссовки",
 	price: "144 240 00 ",
 };
 
 export default function ChooseItemNum() {
-	const [hidePass, setHidePass] = useState(true);
+	const [hidePass, setHidePass] = useState(false);
+	const [number, setNumber] = useState(0);
+	function increment() {
+		setNumber(number + 1);
+	}
+	function decrement() {
+		if (number > 0) setNumber(number - 1);
+	}
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.containerSection}>
-				<View style={{ marginRight: 5, marginTop: 30 }}>
-					<TouchableOpacity
-						style={styles.eyes}
-						onPress={() => setHidePass(!hidePass)}
-					>
-						{hidePass ? <ChoiceIcon /> : <Choice2Icon />}
-					</TouchableOpacity>
-				</View>
-				<Image
-					style={styles.leftImage}
-					resizeMode="center"
-					source={{ uri: imageURL }}
-				/>
+				<TouchableOpacity
+					style={
+						hidePass ? styles.checkedActiveBtn : styles.checkedBtn
+					}
+					onPress={() => setHidePass(!hidePass)}
+				>
+					{hidePass ? <ChoiceIcon /> : <Choice2Icon />}
+				</TouchableOpacity>
+				<Image style={styles.leftImage} source={{ uri: imageURL }} />
 			</View>
 			<View style={styles.textBox}>
 				<Text style={styles.headerTxt}>{ProductsData.name}</Text>
-				<Text> Белый,XXL</Text>
+				<Text style={{ marginRight: 5, fontSize: 12, marginTop: 2 }}>
+					Белый,XXL
+				</Text>
 				<View style={styles.rowTxt}>
 					<Text style={styles.blueTxt}>140 000 Cyм</Text>
 				</View>
+			</View>
+			<View>
+				<TouchableOpacity>
+					<View style={styles.iconBox}>
+						<CrashIcon fill={COLORS.gray} />
+					</View>
+				</TouchableOpacity>
 				<View style={styles.counter}>
-					<TouchableOpacity>
-						<View style={styles.minus}>
-							<MinusIcon fill={COLORS.white} />
-						</View>
+					<TouchableOpacity onPress={decrement} style={styles.minus}>
+						<MinusIcon fill={COLORS.white} />
 					</TouchableOpacity>
 					<View style={styles.topBottom}>
-						<Text>1 шт</Text>
+						<Text>{number} шт</Text>
 					</View>
-					<TouchableOpacity>
-						<View style={styles.plus}>
-							<PlusCounterIcon fill={COLORS.white} />
-						</View>
+					<TouchableOpacity onPress={increment} style={styles.plus}>
+						<PlusCounterIcon fill={COLORS.white} />
 					</TouchableOpacity>
 				</View>
 			</View>
-			<TouchableOpacity>
-				<View style={styles.iconBox}>
-					<CrashIcon fill={COLORS.gray} />
-				</View>
-			</TouchableOpacity>
 		</View>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
-		marginHorizontal: 20,
-		marginVertical: 10,
 		flexDirection: "row",
-		justifyContent: "space-between",
+		paddingVertical: 15,
+		paddingHorizontal: 10,
 	},
 
 	leftImage: {
 		width: 90,
-		height: 120,
+		height: 90,
 		borderRadius: 8,
 	},
 
 	textBox: {
 		flexShrink: 1,
-		paddingHorizontal: 10,
+		paddingHorizontal: 5,
+		marginRight: 15,
 	},
 
 	headerTxt: {
-		fontSize: 14,
-		letterSpacing: 0.5,
-		fontWeight: "700",
+		fontSize: 10,
+		// letterSpacing: 0.5,
+		fontWeight: "600",
 		color: COLORS.defaultBlack,
+		textTransform: "uppercase",
 	},
 
 	itemTxt: {
@@ -108,7 +111,7 @@ const styles = StyleSheet.create({
 	},
 
 	blueTxt: {
-		fontSize: 15,
+		fontSize: 14,
 		fontWeight: "700",
 		color: COLORS.red,
 	},
@@ -120,11 +123,13 @@ const styles = StyleSheet.create({
 
 	counter: {
 		flexDirection: "row",
+		marginTop: 40,
+		marginLeft: 10,
 	},
 
 	iconBox: {
 		paddingVertical: 5,
-		justifyContent: "flex-start",
+		alignItems: "flex-end",
 	},
 
 	item: {
@@ -132,23 +137,24 @@ const styles = StyleSheet.create({
 	},
 
 	minus: {
-		paddingVertical: 10,
-		paddingHorizontal: 10,
+		paddingVertical: 5,
+		paddingHorizontal: 5,
 		borderTopLeftRadius: 5,
 		borderBottomLeftRadius: 5,
 		backgroundColor: COLORS.orange,
 	},
 
 	plus: {
-		padding: 10,
-		paddingHorizontal: 10,
+		paddingVertical: 5,
+		paddingHorizontal: 5,
 		borderTopRightRadius: 5,
 		borderBottomRightRadius: 5,
 		backgroundColor: COLORS.lightBlack,
+		alignItems: "center",
 	},
 
 	topBottom: {
-		paddingHorizontal: 15,
+		paddingHorizontal: 5,
 		borderColor: COLORS.whiteGray,
 		borderTopWidth: 1,
 		borderBottomWidth: 1,
@@ -156,8 +162,18 @@ const styles = StyleSheet.create({
 	},
 	containerSection: {
 		flexDirection: "row",
+		alignItems: "center",
 	},
 	iconView: {
 		marginVertical: 10,
+	},
+
+	checkedBtn: {
+		marginRight: 10,
+	},
+
+	checkedActiveBtn: {
+		marginRight: 10,
+		backgroundColor: COLORS.darkBlue2,
 	},
 });

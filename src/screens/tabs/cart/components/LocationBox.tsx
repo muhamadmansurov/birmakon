@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
 		marginHorizontal: 20,
 		alignItems: "center",
 		justifyContent: "space-between",
+		marginTop: 10
 	},
 
 	text: {

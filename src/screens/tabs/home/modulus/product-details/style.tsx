@@ -1,4 +1,5 @@
 import { COLORS } from "@novomarkt/constants/colors";
+import { WINDOW_WIDTH } from "@novomarkt/constants/sizes";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -245,6 +246,16 @@ export const styles = StyleSheet.create({
 		marginVertical: 30,
 		marginHorizontal: 10,
 		paddingHorizontal: 10,
+		backgroundColor: COLORS.white,
+		borderRadius: 10,
+		shadowColor: COLORS.black,
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 3.84,
+		elevation: 5,
 	},
 	deliveryText: {
 		fontWeight: "600",
@@ -280,48 +291,54 @@ export const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 		justifyContent: "center",
 	},
+
 	function: {
 		alignItems: "center",
 		justifyContent: "center",
 		marginHorizontal: 15,
 	},
+
 	functionText: {
 		fontSize: 16,
 		color: "#666666",
 	},
+
 	sectionContainer: {
 		width: 180,
-		marginRight: -4,
 	},
+
 	oldContainer: {
 		flexDirection: "row",
 		alignItems: "center",
-		marginHorizontal: 20,
 		marginTop: 20,
+		paddingHorizontal: 25,
+		marginLeft: WINDOW_WIDTH / 10 - 50,
 	},
-	oldView: {
-		// width: 90,
-		height: 46,
+
+	oldBtn: {
+		height: 38,
+		width: 100,
 		backgroundColor: "#131E3D",
 		borderRadius: 7,
 		alignItems: "center",
 		justifyContent: "center",
 		marginTop: 10,
-		marginRight: -8,
-		paddingHorizontal: 5,
+		paddingHorizontal: 15,
 	},
+
 	oldText: {
 		color: COLORS.white,
 	},
+
 	oldView1: {
-		width: 90,
-		height: 46,
+		width: WINDOW_WIDTH / 10 - 100,
+		height: 38,
 		backgroundColor: COLORS.lightOrange,
 		borderRadius: 7,
 		alignItems: "center",
 		justifyContent: "center",
 		marginTop: 10,
-		marginLeft: -1,
+		paddingHorizontal: 10,
 	},
 	sectionBox: {
 		flexDirection: "row",
@@ -367,17 +384,15 @@ export const styles = StyleSheet.create({
 		color: COLORS.gray,
 	},
 	flatlistContainer12: {
-		marginHorizontal: 10,
 		paddingVertical: 20,
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "center",
 	},
 	flatlistContainerText12: {
 		fontSize: 18,
 		color: COLORS.black,
-		marginLeft: 10,
 		fontWeight: "600",
-	},
-	propertyBox: {
-		marginLeft: 20,
 	},
 	propertyBoxText: {
 		fontSize: 16,

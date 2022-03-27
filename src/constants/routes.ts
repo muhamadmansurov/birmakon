@@ -33,4 +33,7 @@ export const ROUTES = {
 	CHARACTERISTIC_DETAILS: "characteristic-details",
 	LANGUAGE: "language",
 	COURSE: "cource",
+	COURIERDELIVERY: "CourierDelivery",
+	BRANDSLIST: "BrandsList",
+	HOMEVIEW: "HomeView",
 };

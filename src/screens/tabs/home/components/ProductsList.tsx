@@ -173,7 +173,7 @@ const ProductsList = ({
 				data={productsData}
 				renderItem={(e) => <ProductItem {...e} />}
 				style={styles.container}
-				contentContainerStyle={styles.contentContainerStyle}
+				// contentContainerStyle={styles.contentContainerStyle}
 			/>
 		</View>
 	);
@@ -191,5 +191,5 @@ const styles = StyleSheet.create({
 		letterSpacing: 0.5,
 	},
 	container: { marginBottom: 20 },
-	contentContainerStyle: { paddingHorizontal: 15 },
+	// contentContainerStyle: { paddingHorizontal: 15 },
 });

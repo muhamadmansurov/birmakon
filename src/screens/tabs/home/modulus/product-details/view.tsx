@@ -2,6 +2,9 @@ import {
 	ArrowBottomMarked,
 	BasketIcon,
 	BlueBackIcon,
+	DownArrowIcon,
+	DownIcon,
+	HeartIcon,
 	MinusIcon,
 	PlusCounterIcon,
 	RightArrow,
@@ -73,8 +76,8 @@ let data = {
 	tofrom: "от 50 до 100:",
 	bigprice: "1000 сум",
 };
-let navigation = useNavigation();
 const ProductDetailsView = () => {
+	let navigation = useNavigation();
 	let { params } = useRoute();
 	const [isActive, setIsActive] = useState(true);
 	let item: ProductItemProps = params?.item || {};
@@ -88,6 +91,14 @@ const ProductDetailsView = () => {
 	const [sizeScroll, setSizeScroll] = useState(0);
 	//animation
 	const value = useRef(new Animated.Value(0));
+
+	const [number, setNumber] = useState(0);
+	function increment() {
+		setNumber(number + 1);
+	}
+	function decrement() {
+		if (number > 0) setNumber(number - 1);
+	}
 
 	return (
 		<View style={styles.container}>
@@ -229,37 +240,37 @@ const ProductDetailsView = () => {
 					</View>
 				</View>
 				<View>
-					{/* <View style={styles.compos}>
-						<Text style={styles.composition}>
-							{STRINGS.composition}
-						</Text>
-						<RightArrow fill={COLORS.blue} />
-					</View> */}
 					<View style={styles.deliveryView}>
 						<Text style={styles.deliveryText}>
 							Доставка: 318,94 сум
 						</Text>
-						<Text style={styles.deliveryText1}>
-							В Uzbekistan через BTC
-						</Text>
+						<TouchableOpacity style={{ flexDirection: "row" }}>
+							<Text style={styles.deliveryText1}>
+								В Uzbekistan через BTC
+							</Text>
+							<DownArrowIcon
+								style={{ marginTop: 2, marginLeft: 10 }}
+							/>
+						</TouchableOpacity>
 						<Text style={styles.deliveryText1}>
 							Расчётное время доставки: 29-48 дней
 						</Text>
 					</View>
-					{/* jkhbjhbhbhjbh */}
 					<View style={styles.counter}>
-						<TouchableOpacity>
-							<View style={styles.minus}>
-								<MinusIcon fill={COLORS.white} />
-							</View>
+						<TouchableOpacity
+							style={styles.minus}
+							onPress={decrement}
+						>
+							<MinusIcon fill={COLORS.white} />
 						</TouchableOpacity>
 						<View style={styles.topBottom}>
-							<Text>1 шт</Text>
+							<Text>{number} шт</Text>
 						</View>
-						<TouchableOpacity>
-							<View style={styles.plus}>
-								<PlusCounterIcon fill={COLORS.white} />
-							</View>
+						<TouchableOpacity
+							style={styles.plus}
+							onPress={increment}
+						>
+							<PlusCounterIcon fill={COLORS.white} />
 						</TouchableOpacity>
 						<View style={styles.function}>
 							<Text style={styles.functionText}>
@@ -268,10 +279,8 @@ const ProductDetailsView = () => {
 						</View>
 					</View>
 					<View style={styles.oldContainer}>
-						<TouchableOpacity>
-							<View style={styles.oldView}>
-								<Text style={styles.oldText}>Купить</Text>
-							</View>
+						<TouchableOpacity style={styles.oldBtn}>
+							<Text style={styles.oldText}>Купить</Text>
 						</TouchableOpacity>
 						<View style={styles.sectionContainer}>
 							<DefaultButton
@@ -301,10 +310,9 @@ const ProductDetailsView = () => {
 						</View>
 						<TouchableOpacity
 							onPress={() => navigation.navigate(ROUTES.COMPARE)}
+							style={styles.oldView1}
 						>
-							<View style={styles.oldView1}>
-								<Text style={styles.oldText}>Сравнить</Text>
-							</View>
+							<Text style={styles.oldText}>Сравнить</Text>
 						</TouchableOpacity>
 					</View>
 					<TouchableOpacity
@@ -332,15 +340,6 @@ const ProductDetailsView = () => {
 						);
 					})}
 				</View>
-				{/* <DefaultButton
-					onPress={() =>
-						navigation.navigate(ROUTES.CHARACTERISTIC_DETAILS, {
-							options: item.options,
-						})
-					}
-				>
-					<Text style={styles.buttonTxt}>{STRINGS.allDetails}</Text>
-				</DefaultButton> */}
 				<View style={styles.flatlistContainerView}>
 					<View style={styles.flatlistContainer}>
 						<Text style={styles.flatlistContainerText}>
@@ -367,11 +366,28 @@ const ProductDetailsView = () => {
 						</Text>
 					</View>
 				</View>
-				<View>
+				<View
+					style={{
+						backgroundColor: COLORS.white,
+						shadowColor: "#000",
+						shadowOffset: {
+							width: 0,
+							height: 2,
+						},
+						shadowOpacity: 0.25,
+						shadowRadius: 3.84,
+						elevation: 5,
+						marginHorizontal: 10,
+						borderRadius: 10,
+						padding: 0,
+						paddingHorizontal: 15,
+					}}
+				>
 					<View style={styles.flatlistContainer12}>
 						<Text style={styles.flatlistContainerText12}>
 							Мироншох
 						</Text>
+						<HeartIcon fill={COLORS.red} />
 					</View>
 					<View style={styles.propertyBox}>
 						<Text style={styles.propertyBoxText}>
@@ -431,12 +447,6 @@ const ProductDetailsView = () => {
 				>
 					<Text style={styles.flexEnd}>{STRINGS.comments}</Text>
 				</TouchableOpacity>
-				{/* <DefaultButton containerStyle={styles.marginBottom}>
-					<Text style={styles.buttonReview}>
-						{STRINGS.sendReview}
-					</Text>
-				</DefaultButton> */}
-
 				<Text style={styles.title}>{STRINGS.advertBlock}</Text>
 				<FlatList
 					numColumns={2}

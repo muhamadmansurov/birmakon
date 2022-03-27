@@ -1,3 +1,4 @@
+import { COLORS } from "@novomarkt/constants/colors";
 import React from "react";
 import Svg, {
 	Circle,
@@ -6,9 +7,12 @@ import Svg, {
 	Ellipse,
 	G,
 	Image,
+	Line,
 	LinearGradient,
 	Path,
 	Pattern,
+	Polygon,
+	Polyline,
 	Rect,
 	Stop,
 	SvgProps,
@@ -57,8 +61,8 @@ export function ChatIcon(props: SvgProps) {
 export function PlusCounterIcon(props: SvgProps) {
 	return (
 		<Svg
-			width={13}
-			height={10}
+			width={8}
+			height={8}
 			viewBox="0 0 13 12"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
@@ -77,8 +81,8 @@ export function PlusCounterIcon(props: SvgProps) {
 export function MinusIcon(props: SvgProps) {
 	return (
 		<Svg
-			width={10}
-			height={10}
+			width={8}
+			height={8}
 			viewBox="0 0 13 3"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
@@ -695,8 +699,8 @@ export function CatalogIcon(props: SvgProps) {
 export function CrashIcon(props: SvgProps) {
 	return (
 		<Svg
-			width={27}
-			height={30}
+			width={20}
+			height={20}
 			viewBox="0 0 20 21"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
@@ -1243,17 +1247,16 @@ export function ChoiceIcon(props: SvgProps) {
 			width={20}
 			height={22}
 			viewBox="0 0 20 22"
-			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 			{...props}
 		>
 			<Path
 				d="M2.857 0C1.281 0 0 1.41 0 3.143v15.714C0 20.59 1.281 22 2.857 22h14.286C18.719 22 20 20.59 20 18.857V3.143C20 1.41 18.719 0 17.143 0H2.857zm0 18.857V3.143h14.286l.003 15.714H2.857z"
-				fill="#EE4927"
+				fill="none"
 			/>
 			<Path
 				d="M8.566 11.874L6.714 9.876l-2 2.248 3.863 4.159 6.713-7.309-2.008-2.234-4.716 5.134z"
-				fill="#EE4927"
+				fill="#fff"
 			/>
 		</Svg>
 	);
@@ -1270,12 +1273,9 @@ export function Choice2Icon(props: SvgProps) {
 		>
 			<Path
 				d="M2.857 0C1.281 0 0 1.41 0 3.143v15.714C0 20.59 1.281 22 2.857 22h14.286C18.719 22 20 20.59 20 18.857V3.143C20 1.41 18.719 0 17.143 0H2.857zm0 18.857V3.143h14.286l.003 15.714H2.857z"
-				fill="#EE4927"
+				fill={COLORS.darkBlue2}
+				strokeWidth={0.1}
 			/>
-			{/* <Path
-				d="M8.566 11.874L6.714 9.876l-2 2.248 3.863 4.159 6.713-7.309-2.008-2.234-4.716 5.134z"
-				fill="#EE4927"
-			/> */}
 		</Svg>
 	);
 }
@@ -1610,3 +1610,201 @@ export function LanguageIcon(props: SvgProps) {
 		</Svg>
 	);
 }
+
+export function DownIcon(props: SvgProps) {
+	return (
+		<Svg
+			viewBox="0 0 48 48"
+			xmlns="http://www.w3.org/2000/svg"
+			{...props}
+			width={24}
+			height={24}
+		>
+			<Path d="M14 20l10 10 10-10z" />
+			<Path d="M0 0h48v48h-48z" fill="none" />
+		</Svg>
+	);
+}
+
+export function NotificationIcon(props: SvgProps) {
+	return (
+		<Svg id="Icons" viewBox="0 0 32 32" {...props} width={24} height={24}>
+			<Path
+				d="M27.8,23.2l-1.1-1.7c-1.9-2.8-2.9-6.1-2.9-9.5c0-3.6-2.4-6.5-5.6-7.5C17.9,3.6,17,3,16,3s-1.9,0.6-2.2,1.5
+	c-3.2,1-5.6,3.9-5.6,7.5c0,3.4-1,6.7-2.9,9.5l-1.1,1.7C3.7,24,4.2,25,5.2,25h21.6C27.8,25,28.3,24,27.8,23.2z"
+			/>
+			<Path d="M20,25c0,2.2-1.8,4-4,4s-4-1.8-4-4" />
+		</Svg>
+	);
+}
+
+export function DownArrowIcon(props: SvgProps) {
+	return (
+		<Svg width={25} height={25} viewBox="0 0 24 24" {...props} fill="black">
+			<Polyline points="6 9 12 15 18 9"></Polyline>
+		</Svg>
+	);
+}
+
+export function RightArrowIcon(props: SvgProps) {
+	return (
+		<Svg viewBox="0 0 407.436 407.436" width={25} height={25} {...props}>
+			<Polygon points="112.814,0 91.566,21.178 273.512,203.718 91.566,386.258 112.814,407.436 315.869,203.718 " />
+		</Svg>
+	);
+}
+
+export function MessagesIcon(props: SvgProps) {
+	return (
+		<Svg
+			id="Layer_1"
+			width={35}
+			height={35}
+			viewBox="0 0 50 50"
+			{...props}
+			fill="white"
+		>
+			<G>
+				<G>
+					<Path
+						fill="#FAFCFD"
+						// stroke="#1D2656"
+						// stroke-linecap="round"
+						// stroke-linejoin="round"
+						// stroke-miterlimit="10"
+						d="M44.102,18.267
+       v4.567c0,2.161-1.751,3.911-3.916,3.911l0.306,4.282l-5.882-4.282h-4.614v-2.812c0-1.397-0.621-2.652-1.604-3.497
+       c-0.811-0.703-1.863-1.126-3.014-1.126H23.13v-1.044c0-2.161,1.751-3.911,3.911-3.911h13.145
+       C42.351,14.355,44.102,16.106,44.102,18.267z"
+					/>
+
+					<Line
+						fill="white"
+						// stroke="#1D2656"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-miterlimit="10"
+						x1="37.855"
+						y1="17.733"
+						x2="27.352"
+						y2="17.733"
+					/>
+
+					<Line
+						fill="white"
+						stroke="#1D2656"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-miterlimit="10"
+						x1="40.492"
+						y1="23.142"
+						x2="32.997"
+						y2="23.142"
+					/>
+
+					<Line
+						fill="white"
+						stroke="#1D2656"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-miterlimit="10"
+						x1="40.492"
+						y1="20.437"
+						x2="35.218"
+						y2="20.437"
+					/>
+
+					<Line
+						fill="white"
+						stroke="#1D2656"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-miterlimit="10"
+						x1="31.032"
+						y1="20.437"
+						x2="28.392"
+						y2="20.437"
+					/>
+				</G>
+				<G>
+					<Path
+						fill="white"
+						stroke="#1D2656"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-miterlimit="10"
+						d="M29.996,23.933
+       v5.395c0,2.553-2.07,4.619-4.619,4.619h-8.944L9.49,39.006l0.362-5.059c-2.557,0-4.623-2.066-4.623-4.619v-5.395
+       c0-2.553,2.066-4.623,4.623-4.623h15.525c1.151,0,2.204,0.423,3.014,1.126C29.375,21.281,29.996,22.536,29.996,23.933z"
+					/>
+
+					<Line
+						fill="none"
+						stroke="#1D2656"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-miterlimit="10"
+						x1="12.604"
+						y1="23.303"
+						x2="25.009"
+						y2="23.303"
+					/>
+
+					<Line
+						fill="none"
+						stroke="#1D2656"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-miterlimit="10"
+						x1="9.489"
+						y1="29.691"
+						x2="18.341"
+						y2="29.691"
+					/>
+
+					<Line
+						fill="none"
+						stroke="#1D2656"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-miterlimit="10"
+						x1="9.489"
+						y1="26.497"
+						x2="15.718"
+						y2="26.497"
+					/>
+
+					<Line
+						fill="none"
+						stroke="#1D2656"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-miterlimit="10"
+						x1="20.663"
+						y1="26.497"
+						x2="24.614"
+						y2="26.497"
+					/>
+				</G>
+			</G>
+		</Svg>
+	);
+}
+
+// export function LocationIcon(props: SvgProps) {
+// 	return (
+// 		<Svg
+// 			viewBox="0 0 32 32"
+// 			{}
+// 		>
+// 			{/* <style type="text/css">
+// 	 .st0{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+//  </style> */}
+// 			<path
+// 				class="st0"
+// 				d="M25,13c0,8-9,15-9,15s-9-7-9-15c0-5,4-9,9-9S25,8,25,13z"
+// 			/>
+// 			<circle class="st0" cx="16" cy="13" r="3" />
+// 		</Svg>
+// 	);
+// }

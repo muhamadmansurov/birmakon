@@ -1,172 +1,178 @@
-import {
-	EditIcon,
-	LocationIcon,
-	PlusIcon,
-} from "@novomarkt/assets/icons/icons";
-import EditableInput from "@novomarkt/components/general/EditableInput";
 import Text from "@novomarkt/components/general/Text";
 import BackHeader from "@novomarkt/components/navigation/BackHeader";
-import { COLORS } from "@novomarkt/constants/colors";
-import { STRINGS } from "@novomarkt/locales/strings";
-import React, { useCallback, useState } from "react";
-import { Image, ScrollView, TouchableOpacity, View } from "react-native";
-import Avatar from "../../components/Avatar";
-import StatusBar from "../orders/components/StatusBar";
+import { useNavigation } from "@react-navigation/native";
+import React, { useEffect, useState } from "react";
+import {
+	Animated,
+	Dimensions,
+	ScrollView,
+	TouchableOpacity,
+	View,
+} from "react-native";
+import MyLegal from "../../components/MyLegal";
+import ProfileViewScreen from "../../components/ProfileView";
 import { styles } from "./style";
 
-export interface UserData {
-	name: string;
-	email: string;
-	phone: string;
-	dateOfBirth: string;
-	isMale: boolean;
-}
-
 const ProfileView = () => {
-	const [data, setData] = useState<UserData>({
-		email: "",
-		phone: "",
-		dateOfBirth: "",
-		isMale: true,
-		name: "",
+	const [isModalVisible, setModalVisible] = useState(false);
+	let navigation = useNavigation();
+	const toggleModal = () => {
+		setModalVisible(!isModalVisible);
+	};
+	const [activeIndex, setIsActive] = useState(0);
+
+	const { width } = Dimensions.get("window");
+	const [state, setState] = useState({
+		active: 0,
+		xTabOne: 0,
+		xTabTwo: 0,
+		translateX: new Animated.Value(0),
+		translateXTabOne: new Animated.Value(0),
+		translateXTabTwo: new Animated.Value(width),
+		translateY: -1000,
 	});
-	let onTextChange = useCallback((key: keyof UserData) => {
-		return (value: string) => {
-			//TODO check
-			// @ts-ignore
-			setData({ ...data, [key]: value });
-		};
-	}, []);
+
+	let {
+		xTabOne,
+		translateX,
+		active,
+		translateXTabTwo,
+		translateXTabOne,
+		translateY,
+	} = state;
+
+	let handleSlide = (type: number) => {
+		let { active, translateX, translateXTabTwo, translateXTabOne } = state;
+		Animated.spring(translateX, {
+			toValue: type,
+			useNativeDriver: true,
+		}).start();
+		if (active === 0) {
+			Animated.parallel([
+				Animated.spring(translateXTabOne, {
+					toValue: 0,
+					useNativeDriver: true,
+				}),
+				Animated.spring(translateXTabTwo, {
+					toValue: width,
+					useNativeDriver: true,
+				}),
+			]).start();
+		} else {
+			Animated.parallel([
+				Animated.spring(translateXTabOne, {
+					toValue: width,
+					useNativeDriver: true,
+				}),
+				Animated.spring(translateXTabTwo, {
+					toValue: 0,
+					useNativeDriver: true,
+				}),
+			]).start();
+		}
+	};
+	useEffect(() => {
+		handleSlide(xTabOne);
+	}, [state.active]);
+
 	return (
 		<ScrollView
 			style={styles.container}
 			showsVerticalScrollIndicator={false}
 		>
 			<BackHeader style={styles.left} />
-			<Text style={styles.header}>Мои данные</Text>
-			<View style={styles.shadowBox}>
-				<View style={styles.row}>
-					<Avatar />
-					<EditableInput
-						titleStyle={styles.head}
-						value={data?.name}
-						bigger
-						onChange={onTextChange("name")}
-						placeholder="Javohir Akramjonov"
-					/>
-				</View>
-				<View style={styles.inputBox}>
-					<EditableInput
-						title={STRINGS.email}
-						value={data?.email}
-						onChange={onTextChange("email")}
-						placeholder="mironshohnasimov@gmail.com"
-						keyboardType="email-address"
-					/>
-					<EditableInput
-						title={STRINGS.phone}
-						value={data?.phone}
-						onChange={onTextChange("phone")}
-						placeholder="+998 99 989 2923"
-						keyboardType="phone-pad"
-					/>
-				</View>
-				<View
+			<View style={styles.container}>
+				<Animated.View
 					style={{
-						flexDirection: "row",
-						justifyContent: "space-between",
+						transform: [
+							{
+								translateX,
+							},
+						],
 					}}
-				>
-					<View style={{ flex: 1 }}>
-						<EditableInput
-							title={STRINGS.dateOfBirth}
-							value={data?.dateOfBirth}
-							onChange={onTextChange("dateOfBirth")}
-							placeholder="01.01.2000"
-							keyboardType="numeric"
-						/>
-					</View>
-					<View style={{ flex: 1 }}>
-						<Text>{STRINGS.sex}</Text>
-						<View style={styles.row}>
-							<TouchableOpacity
-								onPress={() =>
-									setData({ ...data, isMale: true })
-								}
-							>
-								<View style={styles.rowButtons}>
-									<View
-										style={
-											data?.isMale
-												? styles.dot
-												: styles.dotGray
-										}
-									>
-										<View
-											style={
-												data?.isMale
-													? styles.background
-													: styles.backgroundGray
-											}
-										/>
-									</View>
-									<Text style={styles.black}>Муж.</Text>
-								</View>
-							</TouchableOpacity>
-
-							<TouchableOpacity
-								onPress={() =>
-									setData({ ...data, isMale: false })
-								}
-							>
-								<View style={styles.rowButtons}>
-									<View
-										style={
-											data?.isMale
-												? styles.dotGray
-												: styles.dot
-										}
-									>
-										<View
-											style={
-												data?.isMale
-													? styles.backgroundGray
-													: styles.background
-											}
-										/>
-									</View>
-									<Text style={styles.black}>Жен.</Text>
-								</View>
-							</TouchableOpacity>
-						</View>
-					</View>
+				/>
+				<View style={styles.styleOne}>
+					<TouchableOpacity
+						style={
+							active === 0
+								? styles.buttonBox
+								: styles.buttonBoxTwo
+						}
+						onLayout={(event) =>
+							setState({
+								...state,
+								xTabOne: event.nativeEvent.layout.x,
+							})
+						}
+						onPress={() => setState({ ...state, active: 0 })}
+					>
+						<Text
+							style={{
+								color: active === 0 ? "white" : "black",
+								fontWeight: "500",
+							}}
+						>
+							Мои данные
+						</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						style={
+							active === 1
+								? styles.buttonBox
+								: styles.buttonBoxTwo
+						}
+						onLayout={(event) =>
+							setState({
+								...state,
+								xTabTwo: event.nativeEvent.layout.x,
+							})
+						}
+						onPress={() => setState({ ...state, active: 1 })}
+					>
+						<Text
+							style={{
+								color: active === 0 ? "black" : "white",
+								fontWeight: "500",
+							}}
+						>
+							Мои данные
+						</Text>
+					</TouchableOpacity>
 				</View>
-			</View>
-			<View style={styles.locate}>
-				<Text style={styles.txt}>Адресa клиента</Text>
-				<View style={styles.row}>
-					<LocationIcon fill={COLORS.gray} />
-					<Text style={styles.moscow}>Москва</Text>
-				</View>
-			</View>
-			<View style={styles.delete}>
-				<Text style={styles.txt}>Удаление личного кабинета</Text>
-				<Text>Как только Ваш личный кабинет будет удален</Text>
-				<Text style={styles.blueText}>Удаление личново кабинета</Text>
-			</View>
-			<View style={styles.recover}>
-				<Text style={styles.txt}>Восстановления пароля</Text>
-				<Text style={styles.blueText}>
-					Данные для восстановления пароля и sms
-				</Text>
-			</View>
-			<View style={styles.shadowBoxTwo}>
-				<Text style={styles.bank}> Банковские карты </Text>
-				<View style={styles.border}>
-					<View style={styles.round}>
-						<PlusIcon stroke={COLORS.red} fill={COLORS.red} />
-					</View>
-					<Text style={styles.blueText}>Добавить карту</Text>
+				<View style={styles.scrollContainer}>
+					<ScrollView>
+						<Animated.View
+							style={{
+								transform: [
+									{
+										translateX: translateXTabOne,
+									},
+								],
+							}}
+							onLayout={(event) =>
+								setState({
+									...state,
+									translateY: event.nativeEvent.layout.height,
+								})
+							}
+						>
+							<ProfileViewScreen />
+						</Animated.View>
+						<Animated.View
+							style={{
+								transform: [
+									{
+										translateX: translateXTabTwo,
+									},
+									{
+										translateY: -translateY,
+									},
+								],
+							}}
+						>
+							<MyLegal />
+						</Animated.View>
+					</ScrollView>
 				</View>
 			</View>
 		</ScrollView>

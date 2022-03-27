@@ -19,7 +19,6 @@ const Language = () => {
 			<View style={styles.containerView}>
 				<BackHeader
 					name={STRINGS.Language}
-					// style={{ marginTop: -10 }}
 				/>
 			</View>
 			<ScrollView

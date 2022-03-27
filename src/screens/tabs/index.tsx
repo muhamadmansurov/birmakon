@@ -68,8 +68,6 @@ const TabNavigation = () => {
 					tabBarBadge: 2,
 					tabBarLabel: STRINGS.cart,
 					tabBarLabelStyle: { fontSize: 14 },
-
-					// tabBarBadgeStyle: COLORS.lightBlack,
 				}}
 			/>
 			<Tab.Screen

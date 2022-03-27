@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
 		fontSize: 19,
 		fontFamily: "Montserrat",
 		color: COLORS.defaultBlack,
+		marginLeft: 8
 	},
 
 	box: {

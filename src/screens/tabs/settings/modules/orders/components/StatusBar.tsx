@@ -2,8 +2,6 @@ import {
 	OrderIcon,
 	PaymentexpectedIcon,
 	PenIcon,
-	ReturnsIcon,
-	ReviewIcon,
 	RightgreyIcon,
 	RightIcon,
 	SendingIcon,
@@ -18,7 +16,7 @@ const StatusBar = () => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.titleContainer}>
-				<Text style={styles.textTitle}>{STRINGS.MyOrders}</Text>
+				<Text style={styles.textTitle}>{STRINGS.myOrders}</Text>
 				<TouchableOpacity>
 					<View style={styles.textContainer}>
 						<Text style={styles.textOrder}>
@@ -113,8 +111,8 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	textTitle: {
-		fontWeight: "700",
-		fontSize: 20,
+		fontWeight: "500",
+		fontSize: 18,
 	},
 	textOrder: {
 		color: COLORS.gray,
