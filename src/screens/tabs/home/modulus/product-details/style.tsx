@@ -441,4 +441,10 @@ export const styles = StyleSheet.create({
 
 		elevation: 5,
 	},
+
+	rowBox: {
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-between",
+	},
 });

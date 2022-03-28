@@ -1,23 +1,10 @@
-import React, { ReactElement } from "react";
-import {
-	ListRenderItemInfo,
-	StyleSheet,
-	TouchableOpacity,
-	View,
-} from "react-native";
+import { GroupIcon, LeftArrowIcon } from "@novomarkt/assets/icons/icons";
 import Text from "@novomarkt/components/general/Text";
-import {
-	GroupIcon,
-	HeartIcon,
-	LeftArrow,
-	LeftArrowIcon,
-	UploadIcon,
-} from "@novomarkt/assets/icons/icons";
 import { COLORS } from "@novomarkt/constants/colors";
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import { useNavigation } from "@react-navigation/core";
-import { NewsItemProps } from "../../../components/NewsItem";
 import { STRINGS } from "@novomarkt/locales/strings";
+import { useNavigation } from "@react-navigation/core";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 let navigation = useNavigation();
 export interface BackHeaderLimit {

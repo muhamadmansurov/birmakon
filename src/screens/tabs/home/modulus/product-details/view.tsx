@@ -132,12 +132,14 @@ const ProductDetailsView = () => {
 					</Text>
 				</View>
 				<FavoritePrice
-					oldprice={data.oldprice}
-					newprice={data.newprice}
 					fromTo={data.fromTo}
 					smallprice={data.smallprice}
 					tofrom={data.tofrom}
 					bigprice={data.bigprice}
+				/>
+				<FavoritePrice
+					oldprice={data.oldprice}
+					newprice={data.newprice}
 				/>
 				<Text style={styles.corusellText}>Цвет</Text>
 				<View>
